@@ -1,0 +1,10 @@
+variable "subnet_id" {}
+variable "keypair" {}
+variable "name" {}
+variable "vpc_id" {}
+variable "domain" {}
+variable "nexus-domain" {}
+variable "subnets" {}
+variable "newrelic-user-licence" {}
+variable "newrelic-acct-id" {}
+variable "newrelic-region" {}

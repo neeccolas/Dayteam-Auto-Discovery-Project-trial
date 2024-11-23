@@ -1,0 +1,11 @@
+variable "vpc-id" {}
+variable "subnets" {}
+variable "redhat" {}
+variable "pub-key" {}
+variable "vpc-zone-identifier" {}
+variable "nexus-ip" {}
+variable "newrelic-user-licence" {}
+variable "newrelic-acct-id" {}
+variable "newrelic-region" {}
+variable "name" {}
+variable "domain_name" {}

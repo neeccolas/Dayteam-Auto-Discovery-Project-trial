@@ -1,0 +1,11 @@
+variable "name" {}
+variable "keypair" {}
+variable "vpc_id" {}
+variable "ami" {}
+variable "subnets" {}
+variable "domain" {}
+variable "sonarqube-domain" {}
+variable "newrelic-user-licence" {}
+variable "newrelic-acct-id" {}
+variable "newrelic-region" {}
+variable "subnet_id" {}
