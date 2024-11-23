@@ -29,8 +29,8 @@ create_dynamodb_table() {
   
   aws dynamodb create-table \
     --table-name $TABLE_NAME \
-    --attribute-definitions AttributeName=ID,AttributeType=S \
-    --key-schema AttributeName=ID,KeyType=HASH \
+    --attribute-definitions AttributeName=LockID,AttributeType=S \
+    --key-schema AttributeName=LockID,KeyType=HASH \
     --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 \
     --region $REGION \
     --profile $PROFILE 
