@@ -13,8 +13,8 @@ resource "aws_instance" "jenkins" {
   user_data                   = file("./jenkins-script.sh")
 
   root_block_device {
-    volume_size = 30  # Size in GB
-    volume_type = "gp3"  # Optional: General Purpose SSD
+    volume_size = 30    # Size in GB
+    volume_type = "gp3" # Optional: General Purpose SSD
   }
 
   tags = {
@@ -35,7 +35,7 @@ resource "local_file" "private-key" {
 }
 
 resource "aws_key_pair" "public-key" {
-  key_name   = "jenkins-key"
+  key_name   = "jenkins-key-trial"
   public_key = tls_private_key.keypair.public_key_openssh
 }
 
