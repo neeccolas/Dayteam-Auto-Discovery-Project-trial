@@ -109,7 +109,7 @@ resource "aws_instance" "vault" {
   iam_instance_profile        = aws_iam_instance_profile.vault-kms-unseal.id
   associate_public_ip_address = true
   user_data = templatefile("./vault-script.sh", {
-    aws_region = var.region
+    aws_region = var.region,
     kms_key    = aws_kms_key.vault.id
   })
   tags = {
