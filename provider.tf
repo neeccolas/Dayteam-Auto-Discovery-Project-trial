@@ -1,14 +1,14 @@
 provider "aws" {
-  region = "eu-west-3"
+  region = "eu-west-2"
   profile = "euteam1"
 }
 
 terraform {
   backend "s3" {
-    bucket         = "s3-bucket-trial"
+    bucket         = "s3-bucket-trial2"
     key            = "infra/tfstate"
-    dynamodb_table = "dynamodb-table-trial"
-    region         = "eu-west-3"
+    dynamodb_table = "dynamodb-table-trial2"
+    region         = "eu-west-2"
     # encrypt = true
     profile = "euteam1"
   }

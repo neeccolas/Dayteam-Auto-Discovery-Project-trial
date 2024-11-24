@@ -1,9 +1,9 @@
 #!/bin/bash
 # set -x
 # Variables
-BUCKET_NAME="s3-bucket-trial"
-TABLE_NAME="dynamodb-table-trial"
-REGION="eu-west-3"
+BUCKET_NAME="s3-bucket-trial2"
+TABLE_NAME="dynamodb-table-trial2"
+REGION="eu-west-2"
 PROFILE="euteam1" 
 
 # Function to create an S3 bucket
@@ -47,8 +47,8 @@ create_s3_bucket
 create_dynamodb_table
 
 # # # # Create a Jenkins server
-# cd ./jenkins
-# terraform init
-# terraform fmt --recursive
-# terraform validate
-# terraform apply -auto-approve
+cd ./jenkins
+terraform init
+terraform fmt --recursive
+terraform validate
+terraform apply -auto-approve

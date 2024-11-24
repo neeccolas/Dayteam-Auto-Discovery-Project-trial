@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # # # # Destroy Jenkins server
-# cd ./jenkins
-# terraform destroy -auto-approve
+cd ./jenkins
+terraform destroy -auto-approve
 
 # Variables
-BUCKET_NAME="s3-bucket-trial"
-TABLE_NAME="dynamodb-table-trial"
-REGION="eu-west-3"
+BUCKET_NAME="s3-bucket-trial2"
+TABLE_NAME="dynamodb-table-trial2"
+REGION="eu-west-2"
 PROFILE="euteam1"
 
 # Function to delete all objects in the S3 bucket and then the bucket itself
