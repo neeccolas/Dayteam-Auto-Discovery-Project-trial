@@ -3,8 +3,8 @@
 # Variables
 BUCKET_NAME="s3-bucket-trial"
 TABLE_NAME="dynamodb-table-trial"
-REGION="eu-west-2"
-PROFILE="team-20" 
+REGION="eu-west-3"
+PROFILE="euteam1" 
 
 # Function to create an S3 bucket
 create_s3_bucket() {
