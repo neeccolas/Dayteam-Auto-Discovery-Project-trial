@@ -68,11 +68,15 @@ complete -C /usr/bin/vault vault
 sudo systemctl start vault
 sudo systemctl enable vault
 sleep 30
+
 #Set vault token/secret username and password
-vault operator init > /home/ubuntu/output.txt
-grep -o 'hvs\.[A-Za-z0-9]\{24\}' /home/ubuntu/output.txt > /home/ubuntu/token.txt
-token_content=$(</home/ubuntu/token.txt)
+export token_content=$(vault operator init|grep -o 's\.[A-Za-z0-9]\{24\}')
+echo $token_content > /home/ubuntu/token.txt
+
+#login to vault with the token rom cmd line
 vault login $token_content
+
 vault secrets enable -path=secret/ kv
-vault kv put secret/database username=petclinic password=petclinic
+vault kv put secret/database username="${var.dbuser}" password="${var.dbpass}" 
+vault kv put secret/newrelic NEW_RELIC_API_KEY="${var.nr-key}" NEW_RELIC_ACCOUNT_ID="${var.nr-acc-id}"
 sudo hostnamectl set-hostname vault

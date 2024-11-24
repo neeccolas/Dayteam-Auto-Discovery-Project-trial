@@ -20,3 +20,7 @@ variable "domain-name-2" {
   type    = string
   default = "*.dobetabeta.shop"
 }
+variable "username" {}
+variable "password" {}
+variable "nr-key" {}
+variable "nr-acc-id" {}
