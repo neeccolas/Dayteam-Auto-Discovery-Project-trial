@@ -77,6 +77,6 @@ echo $token_content > /home/ubuntu/token.txt
 vault login $token_content
 
 vault secrets enable -path=secret/ kv
-vault kv put secret/database username="${var.dbuser}" password="${var.dbpass}" 
-vault kv put secret/newrelic NEW_RELIC_API_KEY="${var.nr-key}" NEW_RELIC_ACCOUNT_ID="${var.nr-acc-id}"
+vault kv put secret/database username=petclinic password=petclinic
+vault kv put secret/newrelic NEW_RELIC_API_KEY="NRAK-HT4BH2DUV9UXVFLS3T967UDSA3K" NEW_RELIC_ACCOUNT_ID="4566826"
 sudo hostnamectl set-hostname vault

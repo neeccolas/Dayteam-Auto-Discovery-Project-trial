@@ -1,6 +1,6 @@
 variable "region" {
   type    = string
-  default = "eu-west-3"
+  default = "eu-west-1"
 }
 variable "ami" {
   type    = string
@@ -20,7 +20,7 @@ variable "domain-name-2" {
   type    = string
   default = "*.dobetabeta.shop"
 }
-variable "username" {}
-variable "password" {}
-variable "nr-key" {}
-variable "nr-acc-id" {}
+# variable "username" {}
+# variable "password" {}
+# variable "nr-key" {}
+# variable "nr-acc-id" {}
