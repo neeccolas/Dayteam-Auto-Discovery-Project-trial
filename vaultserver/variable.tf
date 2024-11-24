@@ -1,6 +1,6 @@
 variable "region" {
   type    = string
-  default = "eu-west-1"
+  default = "eu-west-3"
 }
 variable "ami" {
   type    = string
@@ -8,15 +8,15 @@ variable "ami" {
 
 }
 variable "domain-name" {
-  type = string
+  type    = string
   default = "dobetabeta.shop"
 
 }
 variable "domain-name-1" {
-  type = string
+  type    = string
   default = "vault.dobetabeta.shop"
 }
 variable "domain-name-2" {
-  type = string
+  type    = string
   default = "*.dobetabeta.shop"
 }

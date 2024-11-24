@@ -1,6 +1,6 @@
 provider "aws" {
-  region  = var.region
-  #profile = "euteam1"
+  region = var.region
+  profile = "euteam1"
 }
 #creating Iam policy for my iam role (this policy allows an ec2 to assume a role)
 data "aws_iam_policy_document" "assume_role" {
@@ -203,12 +203,12 @@ resource "aws_kms_key" "vault" {
 }
 # Creating a time sleep resource to delay the excecution of our local exec which help us to fetch the vault token from the vault server after it has been created.
 resource "time_sleep" "wait_5_minutes" {
-  depends_on = [aws_instance.vault]
+  depends_on      = [aws_instance.vault]
   create_duration = "300s"
 }
 resource "null_resource" "fetch-token" {
-  depends_on = [ aws_instance.vault, time_sleep.wait_5_minutes ]
- provisioner "local-exec" {
-   command = "scp -o StrictHostKeyChecking=no -i ./vault-key.pem ubuntu@${aws_instance.vault.public_ip}:/home/ubuntu/token.txt ." 
- }
+  depends_on = [aws_instance.vault, time_sleep.wait_5_minutes]
+  provisioner "local-exec" {
+    command = "scp -o StrictHostKeyChecking=no -i ./vault-key.pem ubuntu@${aws_instance.vault.public_ip}:/home/ubuntu/token.txt ."
+  }
 }
