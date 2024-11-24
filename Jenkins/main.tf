@@ -1,6 +1,6 @@
 provider "aws" {
-  region  = "eu-west-2"
-  profile = "team-20"
+  region  = "eu-west-3"
+  profile = "euteam1"
 }
 
 resource "aws_instance" "jenkins" {
