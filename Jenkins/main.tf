@@ -40,7 +40,7 @@ resource "aws_key_pair" "public-key" {
 }
 
 resource "aws_security_group" "jenkins-sg" {
-  name = "jenkins-sg2"
+  name = "jenkins-sg1"
   ingress {
     description = "ssh"
     from_port   = 22
