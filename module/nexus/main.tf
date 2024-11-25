@@ -6,7 +6,7 @@ resource "aws_instance" "nexus" {
   vpc_security_group_ids      = [aws_security_group.nexus_sg.id]
   subnet_id                   = var.subnet_id
   key_name                    = var.keypair
-  user_data                   =file("./userdata.sh")
+  user_data                   =file("./nexus/userdata.sh")
    
   tags = {
     Name = "${var.name}-nexus"

@@ -18,8 +18,8 @@ module "bastion-host" {
   name = local.name
 }
 
-module "rds" {
-  source = "./module/rds"
+module "db" {
+  source = "./module/db"
   db_username = "petclinic"
   db_password = "petclinic"
   db_subnet_ids = module.vpc.private_subnets
@@ -28,8 +28,8 @@ module "rds" {
   bastion-sg = module.bastion-host.bastion-sg 
 }
 
-module "sonarqube-server" {
-  source = "./module/sonarqube-server"
+module "sonarqube" {
+  source = "./module/sonarqube"
   name = local.name
   ami = "ami-03ca36368dbc9cfa1" #ubuntu
   keypair = module.keypair.public-key-id
@@ -62,9 +62,9 @@ module "vpc" {
   }
 }
 
-module "stage-env" {
-  source   = "./module/stage-env"
-  vpc-id   = module.vpc.vpc-id
+module "stage" {
+  source   = "./module/stage"
+  vpc-id   = module.vpc.my_vpc.id
   subnets               = [module.vpc.public_subnets[0], module.vpc.public_subnets[1]]
   redhat                = "ami-07d4917b6f95f5c2a"
   pub-key               = module.keypair.public-key-id

@@ -17,7 +17,7 @@ terraform {
 provider "vault" {
   address = "https://vault.dobetabeta.shop"
   #login to vault server and pick the token
-  token   = file("./token.txt")
+  token   = file("./vaultserver/token.txt")
   # token = "s.q99pWTj2kQhHFCxSZ5epRXrR"
 }
 
