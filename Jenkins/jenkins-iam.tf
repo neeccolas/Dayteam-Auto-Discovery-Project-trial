@@ -24,6 +24,6 @@ resource "aws_iam_role_policy_attachment" "jenkins_role_attachment" {
 
 # Attach the IAM role to an IAM instance profile
 resource "aws_iam_instance_profile" "jenkins_instance_profile" {
-  name = "jenkins_instance_profile2"
+  name = "jenkins_instance_profile-trial"
   role = aws_iam_role.jenkins_role.name
 }
