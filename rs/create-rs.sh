@@ -47,8 +47,8 @@ create_s3_bucket
 create_dynamodb_table
 
 # # # # Create a Jenkins server
-cd ./jenkins
-terraform init
-terraform fmt --recursive
-terraform validate
-terraform apply -auto-approve
+# cd ./jenkins
+# terraform init
+# terraform fmt --recursive
+# terraform validate
+# terraform apply -auto-approve
