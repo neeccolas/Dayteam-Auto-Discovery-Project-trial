@@ -35,11 +35,11 @@ module "sonarqube" {
   keypair = module.keypair.public-key-id
   vpc_id = module.vpc.vpc_id
   subnets = [module.vpc.public_subnets[0], module.vpc.public_subnets[1]]
-  newrelic-user-licence = ""
-  newrelic-acct-id      = ""
+  newrelic-user-licence = data.vault_generic_secret.vault-secret-nr.data["NEW_RELIC_API_KEY"]
+  newrelic-acct-id      = data.vault_generic_secret.vault-secret-nr.data["NEW_RELIC_ACCOUNT_ID"]
   newrelic-region       = "EU"
   domain = "dobetabeta.shop"
-  sonarqube-domain = ""
+  sonarqube-domain = "sonarqube.dobetabeta.shop"
   subnet_id = module.vpc.public_subnets[0]
 }
 
@@ -70,11 +70,11 @@ module "stage" {
   pub-key               = module.keypair.public-key-id
   vpc-zone-identifier   = [module.vpc.private_subnets[0], module.vpc.private_subnets[1]] 
   nexus-ip              = module.nexus.nexus-ip
-  newrelic-user-licence = ""
-  newrelic-acct-id      = ""
+  newrelic-user-licence = data.vault_generic_secret.vault-secret-nr.data["NEW_RELIC_API_KEY"]
+  newrelic-acct-id      = data.vault_generic_secret.vault-secret-nr.data["NEW_RELIC_ACCOUNT_ID"]
   newrelic-region       = "EU"
   name = local.name
-  domain_name = ""
+  domain_name = "stage.dobetabeta.shop"
 }
 
 module "nexus" {
@@ -84,9 +84,9 @@ module "nexus" {
   name = local.name
   vpc_id = module.vpc.vpc_id
   subnets = [module.vpc.public_subnets[1], module.vpc.public_subnets[0]]
-  domain = ""
-  nexus-domain = ""
-  newrelic-user-licence = ""
-  newrelic-acct-id      = ""
+  domain = "dobetabeta.shop"
+  nexus-domain = "nexus.dobetabeta.shop"
+  newrelic-user-licence = data.vault_generic_secret.vault-secret-nr.data["NEW_RELIC_API_KEY"]
+  newrelic-acct-id      = data.vault_generic_secret.vault-secret-nr.data["NEW_RELIC_ACCOUNT_ID"]
   newrelic-region       = "EU"
 }
