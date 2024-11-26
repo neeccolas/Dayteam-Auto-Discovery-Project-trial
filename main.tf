@@ -38,7 +38,7 @@ module "sonarqube" {
   newrelic-user-licence = ""
   newrelic-acct-id      = ""
   newrelic-region       = "EU"
-  domain = ""
+  domain = "dobetabeta.shop"
   sonarqube-domain = ""
   subnet_id = module.vpc.public_subnets[0]
 }
@@ -64,7 +64,7 @@ module "vpc" {
 
 module "stage" {
   source   = "./module/stage"
-  vpc-id   = module.vpc.my_vpc.id
+  vpc-id   = module.vpc.vpc_id
   subnets               = [module.vpc.public_subnets[0], module.vpc.public_subnets[1]]
   redhat                = "ami-07d4917b6f95f5c2a"
   pub-key               = module.keypair.public-key-id
