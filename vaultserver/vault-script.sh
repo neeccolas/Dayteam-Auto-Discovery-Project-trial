@@ -73,7 +73,7 @@ sleep 30
 echo $(vault operator init) > /home/ubuntu/output.txt
 sudo chown ubuntu:ubuntu /home/ubuntu/output.txt
 export token_content=$(cat /home/ubuntu/output.txt|grep -o 'hvs\.[A-Za-z0-9]\{24\}')
-echo $token_content > /home/ubuntu/token.txt
+echo -n "$token_content" > /home/ubuntu/token.txt
 sudo chown ubuntu:ubuntu /home/ubuntu/token.txt
 
 #login to vault with the token rom cmd line
